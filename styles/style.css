@@ -9,7 +9,6 @@
 .dropdownBackground {
   width: 100px;
   height: 100px;
-  background-color: aqua;
   position: absolute;
   opacity: 0;
   transform: translateY(100px);
@@ -20,7 +19,6 @@
 
 .dropdownBackground::before,
 .dropdown::before {
-  background-color: antiquewhite;
   content: '';
   position: absolute;
   display: inline-block;
@@ -67,9 +65,9 @@
   position: absolute;
   transform: translateY(110px);
   /* 불투명도 일단은 1로 설정 */
-  opacity: 1;
+  opacity: 0;
   /* 디스플레이 나중에 none으로 설정하기 */
-  display: flex;
+  display: none;
   transition: all 0.5s;
 }
 
