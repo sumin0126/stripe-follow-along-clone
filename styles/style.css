@@ -1,24 +1,16 @@
-.main-menu {
-  background-color: rgba(255, 255, 255, 1);
-  border-radius: 5px;
-  width: 750px;
-  height: 60px;
-  margin: 100px auto 0;
-}
-
 .dropdownBackground {
+  background: #fff;
   width: 100px;
   height: 100px;
   position: absolute;
-  opacity: 0;
   transform: translateY(100px);
-  transition: all 0.3s;
-  /* all 안에 이미 불투명도와 트랜스폼 속성이 포함되어 있는데, 굳이 두번에 걸쳐서 트랜지션을 사용할 이유가 있는지? */
-  transition: opacity 0.1s, transform 0.2s;
+  transition: all 0.3s, opacity 0.1s, transform 0.2s;
+  opacity: 0;
+  border-radius: 5px;
 }
 
-.dropdownBackground::before,
-.dropdown::before {
+.dropdownBackground:before,
+.dropdown:before {
   content: '';
   position: absolute;
   display: inline-block;
@@ -28,6 +20,18 @@
   border-style: solid;
   border-width: 0 15px 15px 15px;
   border-color: transparent transparent #fff transparent;
+}
+
+.dropdownBackground.open {
+  opacity: 1;
+}
+
+.main-menu {
+  background: rgba(255, 255, 255, 1);
+  border-radius: 5px;
+  width: 750px;
+  height: 60px;
+  margin: 100px auto 0;
 }
 
 .menu-list {
@@ -64,14 +68,12 @@
   border-radius: 5px;
   position: absolute;
   transform: translateY(110px);
-  /* 불투명도 일단은 1로 설정 */
   opacity: 0;
-  /* 디스플레이 나중에 none으로 설정하기 */
   display: none;
   transition: all 0.5s;
 }
 
-.dropdown::before {
+.dropdown:before {
   border-color: transparent;
 }
 
@@ -107,4 +109,12 @@ li .icon {
 
 .about p {
   width: 350px;
+}
+
+.trigger-enter .dropdown {
+  display: block;
+}
+
+.trigger-enter-active .dropdown {
+  opacity: 1;
 }
