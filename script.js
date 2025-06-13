@@ -1,24 +1,26 @@
-let menu = document.querySelector('.main-menu');
-let menuItems = document.querySelectorAll('.menu-list > li');
-let dropdownBackground = document.querySelector('.dropdownBackground');
+const ANIMATION_DELAY = 150;
+
+const menu = document.querySelector('.main-menu');
+const menuItems = document.querySelectorAll('.menu-list > li');
+const dropdownBackground = document.querySelector('.dropdownBackground');
 
 const handleMenuHover = (e) => {
-  let menuItem = e.currentTarget;
+  const menuItem = e.currentTarget;
   menuItem.classList.add('trigger-enter');
 
   setTimeout(() => {
     if (menuItem.classList.contains('trigger-enter')) {
       menuItem.classList.add('trigger-enter-active');
     }
-  }, 150);
+  }, ANIMATION_DELAY);
 
   dropdownBackground.classList.add('open');
 
-  let dropdown = menuItem.querySelector('.dropdown');
+  const dropdown = menuItem.querySelector('.dropdown');
 
-  let dropdownCoords = dropdown.getBoundingClientRect();
+  const dropdownCoords = dropdown.getBoundingClientRect();
 
-  let navCoords = menu.getBoundingClientRect();
+  const navCoords = menu.getBoundingClientRect();
 
   dropdownBackground.style.setProperty('width', `${dropdownCoords.width}px`);
   dropdownBackground.style.setProperty('height', `${dropdownCoords.height}px`);
