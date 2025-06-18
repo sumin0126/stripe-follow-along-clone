@@ -36,9 +36,7 @@ const handleMenuLeave = (e) => {
   dropdownBackground.classList.remove('open');
 };
 
-menuItems.forEach((menu) =>
-  menu.addEventListener('mouseenter', handleMenuHover)
-);
-menuItems.forEach((menu) =>
-  menu.addEventListener('mouseleave', handleMenuLeave)
-);
+menuItems.forEach((menu) => {
+  menu.addEventListener('mouseenter', handleMenuHover);
+  menu.addEventListener('mouseleave', handleMenuLeave);
+});
